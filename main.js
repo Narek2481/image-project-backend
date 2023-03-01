@@ -4,12 +4,11 @@ import bp from "body-parser";
 import cors from "cors";
 import true_email from "./true_email.js"
 
-
-
 const app = express();
 
-app.use(bp.json());
-app.use(bp.urlencoded({ extended: true }))
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.listen(4000);
 app.get("/" , (req, res) => {
@@ -24,5 +23,9 @@ app.post("/registr_submit", (req, res) => {
             console.log(error); // false
         });
     console.log(req.body);
-    res.send("good");
+    res.send("poxos");
+});
+app.post("/login_submit", (req, res) => {
+    console.log(req.body);
+    res.send("all good");
 });
